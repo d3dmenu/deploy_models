@@ -25,3 +25,4 @@ websockets==8.1
 wrapt==1.11.2
 wincertstore==0.2
 python-multipart==0.0.5
+httptools==0.2.0
