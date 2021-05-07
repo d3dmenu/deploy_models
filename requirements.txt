@@ -1,5 +1,5 @@
 certifi==2020.12.5
-click==7.1.2
+click==7.0
 dataclasses==0.8
 fastapi==0.63.0
 h11==0.12.0
