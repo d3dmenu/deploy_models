@@ -1,6 +1,7 @@
 ''' Deploy Model with Heroku '''
-
+import json
 import joblib
+import numpy as np
 import uvicorn
 from fastapi import FastAPI, Form
 from sklearn.ensemble import RandomForestClassifier
