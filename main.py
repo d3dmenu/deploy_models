@@ -20,7 +20,7 @@ async def create_item(humidity: float, temp: float, soil: float):
     predicted = model.predict([[humidity, temp, soil]])
     predicted = predicted.tolist()
     response = jsonable_encoder({"result": predicted[0], "procId": "Cactus", 'complete': True})
-    return JSONResponse(content=response)
+    return predicted[0]
 
 # if __name__ == '__main__':
 #     uvicorn.run(app, host="localhost", port=8000, debug=True)
