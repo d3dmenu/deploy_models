@@ -4,6 +4,8 @@ import joblib
 import numpy as np
 import uvicorn
 from fastapi import FastAPI, Form
+from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
 from sklearn.ensemble import RandomForestClassifier
 
 app = FastAPI()
@@ -17,11 +19,8 @@ async def create_item(humidity: float, temp: float, soil: float):
     model = joblib.load('cactus.h6')
     predicted = model.predict([[humidity, temp, soil]])
     predicted = predicted.tolist()
-    return {
-            "result": predicted[0],
-            "procId": "Cactus",
-            'complete': True,
-            }
+    response = jsonable_encoder({"result": predicted[0], "procId": "Cactus", 'complete': True})
+    return JSONResponse(content=response)
 
 # if __name__ == '__main__':
 #     uvicorn.run(app, host="localhost", port=8000, debug=True)
