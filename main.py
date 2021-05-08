@@ -18,7 +18,9 @@ async def create_item(humidity: float, temp: float, soil: float):
     predicted = model.predict([[humidity, temp, soil]])
     predicted = predicted.tolist()
     return {
-            'result': predicted[0]
+            'result': predicted[0],
+            'test1': "test1",
+            'test2': "test2",
             }
 
 # if __name__ == '__main__':
